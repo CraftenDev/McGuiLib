@@ -20,7 +20,8 @@
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://bitbucket.org/wertarbyte/mcguilib/raw/88b45042cbf672493ccda3d418367af448296369/LICENSE.txt</url>
+            <url>https://bitbucket.org/wertarbyte/mcguilib/raw/88b45042cbf672493ccda3d418367af448296369/LICENSE.txt
+            </url>
         </license>
     </licenses>
 
@@ -30,6 +31,14 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm z</maven.build.timestamp.format>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>wertarbyte-repo</id>
+            <url>scp://repo.wertarbyte.com/home/mvn-repo/repo</url>
+            <uniqueVersion>false</uniqueVersion>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
