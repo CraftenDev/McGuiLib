@@ -39,11 +39,11 @@
             <uniqueVersion>false</uniqueVersion>
         </repository>
     </distributionManagement>
-    
+
     <repositories>
         <repository>
             <id>wertarbyte-repo</id>
-            <url>http://repo.wertarbyte.com/</url>;
+            <url>http://repo.wertarbyte.com/</url>
         </repository>
     </repositories>
 
