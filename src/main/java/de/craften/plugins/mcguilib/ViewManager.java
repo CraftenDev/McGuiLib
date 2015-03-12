@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 
 import java.util.HashMap;
@@ -37,8 +38,9 @@ public class ViewManager implements Listener {
         view.setViewManager(this);
 
         View current = shownViews.get(player.getName());
-        if (current == view) {
-            player.getOpenInventory().getTopInventory().setContents(view.createInventory().getContents());
+        if (current == view && current.getTitle().equals(view.getTitle())) {
+            Inventory inventory = player.getOpenInventory().getTopInventory();
+            inventory.setContents(view.createInventory().getContents());
         } else {
             player.openInventory(view.createInventory());
             registerView(player, view);
