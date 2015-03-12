@@ -38,8 +38,8 @@ public class ViewManager implements Listener {
         view.setViewManager(this);
 
         View current = shownViews.get(player.getName());
-        if (current == view && current.getTitle().equals(view.getTitle())) {
-            Inventory inventory = player.getOpenInventory().getTopInventory();
+        Inventory inventory = player.getOpenInventory().getTopInventory();
+        if (current == view && current.getTitle().equals(inventory.getTitle())) {
             inventory.setContents(view.createInventory().getContents());
         } else {
             player.openInventory(view.createInventory());
