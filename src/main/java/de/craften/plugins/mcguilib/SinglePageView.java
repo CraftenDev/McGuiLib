@@ -10,16 +10,24 @@ public class SinglePageView extends View {
     /**
      * Creates a new view with the given title and size.
      *
-     * @param title The title of this view
-     * @param size  The size of this view, must be a multiple of 9
+     * @param title the title of this view
+     * @param size  the size of this view, must be a multiple of 9
      */
     public SinglePageView(String title, int size) {
         super(title, size);
     }
 
+    /**
+     * Adds the given element to this view and increments the position for the next element.
+     * If the given element is null, a blank slot is added.
+     *
+     * @param element the element to add, null to add a blank slot
+     */
     @Override
     public void addElement(GuiElement element) {
-        super.insertElement(index, element);
+        if (element != null) {
+            super.insertElement(index, element);
+        }
         index++;
     }
 

@@ -22,8 +22,8 @@ public class MultiPageView extends View {
      * One additional row for navigation is automatically added. Note that {@link #getSize()} will return the size you
      * specify here, though.
      *
-     * @param title The title of this view
-     * @param size  The size of this view, must be a multiple of 9
+     * @param title the title of this view
+     * @param size  the size of this view, must be a multiple of 9
      */
     public MultiPageView(String title, int size) {
         this(title, size, 0);
@@ -34,9 +34,9 @@ public class MultiPageView extends View {
      * One additional row for navigation is automatically added. Note that {@link #getSize()} will return the size you
      * specify here, though.
      *
-     * @param title The title of this view
-     * @param size  The size of this view, must be a multiple of 9
-     * @param page  The page to show initially, zero-based
+     * @param title the title of this view
+     * @param size  the size of this view, must be a multiple of 9
+     * @param page  the page to show initially, zero-based
      */
     public MultiPageView(String title, int size, int page) {
         super(title, size + 9);
@@ -118,7 +118,7 @@ public class MultiPageView extends View {
     /**
      * Gets the elements that should be displayed on the current page.
      *
-     * @return The elements that should be displayed on the current page
+     * @return the elements that should be displayed on the current page
      */
     protected List<GuiElement> getDisplayedButtons() {
         return elements.subList(
@@ -129,7 +129,7 @@ public class MultiPageView extends View {
     /**
      * Gets the number of pages of this view.
      *
-     * @return The number of pages of this view
+     * @return the number of pages of this view
      */
     public int getPageCount() {
         if (elements.size() <= getSize())

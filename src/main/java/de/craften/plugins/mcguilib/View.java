@@ -25,8 +25,8 @@ public abstract class View {
     /**
      * Creates a new view with the given title and the given size.
      *
-     * @param title The title of this view
-     * @param size  The size of this view, must be a multiple of 9
+     * @param title the title of this view
+     * @param size  the size of this view, must be a multiple of 9
      */
     public View(String title, int size) {
         this.title = title;
@@ -38,7 +38,7 @@ public abstract class View {
     /**
      * Gets the {@link ViewManager} that is responsible for this view.
      *
-     * @return The {@link ViewManager} that is responsible for this view
+     * @return the {@link ViewManager} that is responsible for this view
      */
     public final ViewManager getViewManager() {
         return viewManager;
@@ -56,7 +56,7 @@ public abstract class View {
     /**
      * Gets the title of this view.
      *
-     * @return The title of this view
+     * @return the title of this view
      */
     public String getTitle() {
         return title;
@@ -65,7 +65,7 @@ public abstract class View {
     /**
      * Creates the inventory that represents this view.
      *
-     * @return An inventory that represents this view
+     * @return an inventory that represents this view
      */
     protected Inventory createInventory() {
         Inventory inventory = Bukkit.getServer().createInventory(viewer, size, getTitle());
@@ -105,7 +105,7 @@ public abstract class View {
     /**
      * Gets the size of this view.
      *
-     * @return The size of this view
+     * @return the size of this view
      */
     public int getSize() {
         return size;
@@ -114,8 +114,8 @@ public abstract class View {
     /**
      * Inserts an element at the given slot. If the slot already contains an element, it's overwritten.
      *
-     * @param slot    The slot to insert the button
-     * @param element The button to insert
+     * @param slot    the slot to insert the button
+     * @param element the button to insert
      */
     protected void insertElement(int slot, GuiElement element) {
         buttons.put(slot, element);
@@ -134,7 +134,7 @@ public abstract class View {
     /**
      * Checks if a button was clicked and calls the handler.
      *
-     * @param event The original event
+     * @param event the original event
      */
     void onClick(InventoryClickEvent event) {
         if (event.getSlotType() == InventoryType.SlotType.CONTAINER) {
@@ -166,6 +166,11 @@ public abstract class View {
         }
     }
 
+    /**
+     * Gets the player that this view is currently displayed to.
+     *
+     * @return player that this view is currently displayed to
+     */
     protected Player getViewer() {
         return viewer;
     }
