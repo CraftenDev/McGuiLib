@@ -58,4 +58,11 @@ public class MultilineTextBuilderTest {
         List<String> expected = Arrays.asList("ThisIsTooLong", "to fit", "a line");
         assertEquals("Too long words shouldn't be broken.", expected, actual);
     }
+
+    @Test
+    public void testSingleLineMerging() {
+        assertEquals("Lines should be separated by one space character in single line output",
+                "Line 1 Line 2 Line 3",
+                TextBuilder.create("Line 1").newLine().append("Line 2").newLine().append("Line 3").getSingleLine());
+    }
 }
