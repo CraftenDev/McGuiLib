@@ -68,17 +68,35 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.9.1</version>
                 <configuration>
                     <windowtitle>McGuiLib API</windowtitle>
                     <doctitle>McGuiLib</doctitle>
                     <show>protected</show>
-                    <footer><![CDATA[GuiLib ${project.version}<br/>Generated ${maven.build.timestamp}]]></footer>
+                    <footer><![CDATA[McGuiLib ${project.version}<br/>Generated ${maven.build.timestamp}]]></footer>
                     <bottom>
-                        <![CDATA[Copyright &copy; 2014 leMaik. McGuiLib is licensed under the MIT license.]]></bottom>
+                        <![CDATA[Copyright &copy; 2014-2015 leMaik. McGuiLib is licensed under the MIT license.]]></bottom>
                 </configuration>
                 <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>javadoc</id>
                         <phase>site</phase>
