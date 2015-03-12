@@ -15,10 +15,10 @@ public class Button extends GuiElement {
     /**
      * Creates a new button with the given material, data, title and description.
      *
-     * @param material    Material of the {@link org.bukkit.inventory.ItemStack} to display
-     * @param data        Data byte of the {@link org.bukkit.inventory.ItemStack} to display
-     * @param title       Title of the button
-     * @param description Description of the button (displayed as lore, one string is one line)
+     * @param material    material of the {@link org.bukkit.inventory.ItemStack} to display
+     * @param data        data byte of the {@link org.bukkit.inventory.ItemStack} to display
+     * @param title       title of the button
+     * @param description description of the button (displayed as lore, one string is one line)
      */
     public Button(Material material, byte data, String title, String... description) {
         setIcon(material, data);
@@ -29,8 +29,8 @@ public class Button extends GuiElement {
     /**
      * Sets the icon of this button.
      *
-     * @param material Material of the {@link org.bukkit.inventory.ItemStack} to display
-     * @param data     Data byte of the {@link org.bukkit.inventory.ItemStack} to display
+     * @param material material of the {@link org.bukkit.inventory.ItemStack} to display
+     * @param data     data byte of the {@link org.bukkit.inventory.ItemStack} to display
      */
     public void setIcon(Material material, byte data) {
         this.material = material;
@@ -41,7 +41,7 @@ public class Button extends GuiElement {
     /**
      * Sets the icon of this button.
      *
-     * @param material Material of the {@link org.bukkit.inventory.ItemStack} to display
+     * @param material material of the {@link org.bukkit.inventory.ItemStack} to display
      */
     public void setIcon(Material material) {
         setIcon(material, (byte) 0);
@@ -50,9 +50,9 @@ public class Button extends GuiElement {
     /**
      * Creates a new button with the given material, title and description.
      *
-     * @param material    Material of the {@link org.bukkit.inventory.ItemStack} to display
-     * @param title       Title of the button
-     * @param description Description of the button (displayed as lore, one string is one line)
+     * @param material    material of the {@link org.bukkit.inventory.ItemStack} to display
+     * @param title       title of the button
+     * @param description description of the button (displayed as lore, one string is one line)
      */
     public Button(Material material, String title, String... description) {
         this(material, (byte) 0, title, description);
@@ -60,7 +60,7 @@ public class Button extends GuiElement {
 
     @Override
     public ItemStack createItem() {
-        ItemStack is = new ItemStack(material, 1, (short) 0, data);
+        ItemStack is = new ItemStack(material, getNumber(), (short) 0, data);
         ItemMeta m = is.getItemMeta();
         m.setDisplayName(getTitle());
         m.setLore(getDescription());

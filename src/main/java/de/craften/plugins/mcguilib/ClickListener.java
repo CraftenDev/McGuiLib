@@ -10,7 +10,7 @@ public interface ClickListener {
     /**
      * Gets called when the element is clicked.
      *
-     * @param event The original event
+     * @param event the original event
      */
     void clicked(InventoryClickEvent event);
 }

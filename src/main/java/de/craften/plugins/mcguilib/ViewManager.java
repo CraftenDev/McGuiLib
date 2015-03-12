@@ -20,7 +20,7 @@ public class ViewManager implements Listener {
     /**
      * Creates a new {@link ViewManager} for the given plugin.
      *
-     * @param plugin The plugin that uses this manager
+     * @param plugin the plugin that uses this manager
      */
     public ViewManager(Plugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -29,8 +29,8 @@ public class ViewManager implements Listener {
     /**
      * Shows the given view to the given player.
      *
-     * @param player Player to show the view to
-     * @param view   View to show
+     * @param player player to show the view to
+     * @param view   view to show
      */
     public void showView(Player player, View view) {
         view.setViewer(player);
