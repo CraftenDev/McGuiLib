@@ -35,8 +35,14 @@ public class ViewManager implements Listener {
     public void showView(Player player, View view) {
         view.setViewer(player);
         view.setViewManager(this);
-        player.openInventory(view.createInventory());
-        registerView(player, view);
+
+        View current = shownViews.get(player.getName());
+        if (current == view) {
+            player.getOpenInventory().getTopInventory().setContents(view.createInventory().getContents());
+        } else {
+            player.openInventory(view.createInventory());
+            registerView(player, view);
+        }
     }
 
     /**
