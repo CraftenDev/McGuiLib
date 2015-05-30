@@ -11,11 +11,13 @@ import org.bukkit.plugin.Plugin;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 /**
  * A manager for views that dispatches click events and displays views to players.
  */
 public class ViewManager implements Listener {
+    private Plugin plugin;
     private Map<String, View> shownViews = new HashMap<>();
 
     /**
@@ -24,6 +26,7 @@ public class ViewManager implements Listener {
      * @param plugin the plugin that uses this manager
      */
     public ViewManager(Plugin plugin) {
+        this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
@@ -64,7 +67,11 @@ public class ViewManager implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         View view = shownViews.get(event.getWhoClicked().getName());
         if (view != null) {
-            view.onClick(event);
+            try {
+                view.onClick(event);
+            } catch (Exception e) {
+                plugin.getLogger().log(Level.SEVERE, "[McGuiLib] An error occurred while processing the click event", e);
+            }
             event.setCancelled(true);
         }
     }
