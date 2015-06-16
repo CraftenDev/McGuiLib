@@ -6,7 +6,7 @@
 
     <groupId>de.craften.plugins.mcguilib</groupId>
     <artifactId>mcguilib-bukkit</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>jar</packaging>
 
     <developers>
@@ -41,10 +41,6 @@
     </distributionManagement>
 
     <repositories>
-        <repository>
-            <id>wertarbyte-repo</id>
-            <url>http://repo.wertarbyte.com/</url>
-        </repository>
         <repository>
             <id>spigot-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
