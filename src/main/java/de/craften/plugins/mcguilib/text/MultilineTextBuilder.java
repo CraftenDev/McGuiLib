@@ -212,20 +212,22 @@ class MultilineTextBuilder extends TextBuilder {
         int index = 0;
 
         for (int i = 0; i < words.length; i++) {
-            if (strippedWords[i].length() <= lineLength - currentLine || currentLine == 0) {
-                sb.append(words[i]).append(" ");
-                currentLine += strippedWords[i].length() + 1;
-            } else {
-                sb.setLength(sb.length() - 1); //remove the last space
-                if (result.isEmpty()) {
-                    result.add(sb.toString());
+            if (i < strippedWords.length) {
+                if (currentLine == 0 || strippedWords[i].length() <= lineLength - currentLine) {
+                    sb.append(words[i]).append(" ");
+                    currentLine += strippedWords[i].length() + 1;
                 } else {
-                    result.add(memory.getFormattingsAt(index) + sb.toString());
+                    sb.setLength(sb.length() - 1); //remove the last space
+                    if (result.isEmpty()) {
+                        result.add(sb.toString());
+                    } else {
+                        result.add(memory.getFormattingsAt(index) + sb.toString());
+                    }
+                    index += sb.length();
+                    sb.setLength(0);
+                    sb.append(words[i]).append(" ");
+                    currentLine = strippedWords[i].length() + 1;
                 }
-                index += sb.length();
-                sb.setLength(0);
-                sb.append(words[i]).append(" ");
-                currentLine = strippedWords[i].length() + 1;
             }
         }
 
