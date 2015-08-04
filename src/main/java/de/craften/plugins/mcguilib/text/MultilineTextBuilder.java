@@ -1,5 +1,6 @@
 package de.craften.plugins.mcguilib.text;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
@@ -188,6 +189,13 @@ class MultilineTextBuilder extends TextBuilder {
     public void sendTo(CommandSender destination) {
         for (String line : getLines(200)) {
             destination.sendMessage(line);
+        }
+    }
+
+    @Override
+    public void broadcast() {
+        for (String line : getLines(200)) {
+            Bukkit.broadcastMessage(line);
         }
     }
 

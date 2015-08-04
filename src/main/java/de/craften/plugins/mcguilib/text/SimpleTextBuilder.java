@@ -1,5 +1,6 @@
 package de.craften.plugins.mcguilib.text;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
@@ -199,6 +200,11 @@ class SimpleTextBuilder extends TextBuilder {
     @Override
     public void sendTo(CommandSender destination) {
         destination.sendMessage(getSingleLine());
+    }
+
+    @Override
+    public void broadcast() {
+        Bukkit.broadcastMessage(getSingleLine());
     }
 
     private void flush() {

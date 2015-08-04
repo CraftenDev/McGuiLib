@@ -205,6 +205,11 @@ public abstract class TextBuilder {
     public abstract void sendTo(CommandSender destination);
 
     /**
+     * Sends the formatted text to all players. Multiple lines are sent as multiple messages.
+     */
+    public abstract void broadcast();
+
+    /**
      * Creates a new empty text builder.
      *
      * @return new empty text builder
