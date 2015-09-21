@@ -152,6 +152,15 @@ class SimpleTextBuilder extends TextBuilder {
     }
 
     @Override
+    public TextBuilder color(ChatColor color) throws IllegalArgumentException {
+        if (!color.isColor()) {
+            throw new IllegalArgumentException(color + " is not a color");
+        }
+        this.color = color;
+        return this;
+    }
+
+    @Override
     public TextBuilder obfuscated() {
         obfuscated = !obfuscated;
         return this;

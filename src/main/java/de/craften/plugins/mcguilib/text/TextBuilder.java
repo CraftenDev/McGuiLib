@@ -1,5 +1,6 @@
 package de.craften.plugins.mcguilib.text;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 import java.util.List;
@@ -127,6 +128,15 @@ public abstract class TextBuilder {
      * @return this instance
      */
     public abstract TextBuilder white();
+
+    /**
+     * Sets the  color of the last appended string to the given color.
+     *
+     * @param color color
+     * @return this instance
+     * @throws IllegalArgumentException if the given {@link ChatColor} is not a color
+     */
+    public abstract TextBuilder color(ChatColor color) throws IllegalArgumentException;
 
     /**
      * Makes the last appended string appear obfuscated (randomly changing letters).

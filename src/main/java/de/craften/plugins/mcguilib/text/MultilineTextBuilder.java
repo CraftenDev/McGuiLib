@@ -139,6 +139,12 @@ class MultilineTextBuilder extends TextBuilder {
     }
 
     @Override
+    public TextBuilder color(ChatColor color) throws IllegalArgumentException {
+        msg.color(color);
+        return this;
+    }
+
+    @Override
     public MultilineTextBuilder obfuscated() {
         msg.obfuscated();
         return this;
