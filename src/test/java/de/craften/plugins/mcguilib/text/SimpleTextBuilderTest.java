@@ -148,4 +148,17 @@ public class SimpleTextBuilderTest {
         actual = new SimpleTextBuilder("Hello world").red().newLine().append("test").getLines(25);
         assertEquals("Text of text builder should be taken as first line", Arrays.asList(ChatColor.RED + "Hello world", "test"), actual);
     }
+
+    @Test
+    public void testColor() throws Exception {
+        boolean exceptionThrown = false;
+        try {
+            new SimpleTextBuilder("test").color(ChatColor.BOLD);
+        } catch (IllegalArgumentException e) {
+            exceptionThrown = true;
+        }
+        assertTrue("color() should throw an InvalidArgumentException if the argument is not a color", exceptionThrown);
+
+        assertEquals(ChatColor.RED + "test", new SimpleTextBuilder("test").color(ChatColor.RED).getSingleLine());
+    }
 }
