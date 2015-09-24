@@ -220,6 +220,13 @@ public abstract class TextBuilder {
     public abstract void broadcast();
 
     /**
+     * Sends the formatted text to the given destinations. Multiple lines are sent as multiple messages.
+     *
+     * @param destinations destinations to send the text to
+     */
+    public abstract void broadcast(Iterable<CommandSender> destinations);
+
+    /**
      * Creates a new empty text builder.
      *
      * @return new empty text builder

@@ -206,6 +206,13 @@ class MultilineTextBuilder extends TextBuilder {
     }
 
     @Override
+    public void broadcast(Iterable<CommandSender> destinations) {
+        for (CommandSender destination : destinations) {
+            sendTo(destination);
+        }
+    }
+
+    @Override
     public List<String> getLines(int lineLength) {
         List<String> result = new ArrayList<>();
         lines.add(msg.getSingleLine());

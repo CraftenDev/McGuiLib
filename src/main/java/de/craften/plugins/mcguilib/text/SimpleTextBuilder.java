@@ -216,6 +216,13 @@ class SimpleTextBuilder extends TextBuilder {
         Bukkit.broadcastMessage(getSingleLine());
     }
 
+    @Override
+    public void broadcast(Iterable<CommandSender> destinations) {
+        for (CommandSender destination : destinations) {
+            sendTo(destination);
+        }
+    }
+
     private void flush() {
         if (content == null || content.length() == 0)
             return;
