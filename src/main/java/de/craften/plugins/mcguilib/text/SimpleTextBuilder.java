@@ -218,8 +218,9 @@ class SimpleTextBuilder extends TextBuilder {
 
     @Override
     public void broadcast(Iterable<CommandSender> destinations) {
+        String line = getSingleLine();
         for (CommandSender destination : destinations) {
-            sendTo(destination);
+            destination.sendMessage(line);
         }
     }
 

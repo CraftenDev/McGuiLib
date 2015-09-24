@@ -207,8 +207,12 @@ class MultilineTextBuilder extends TextBuilder {
 
     @Override
     public void broadcast(Iterable<CommandSender> destinations) {
+        List<String> lines = getLines(200);
+
         for (CommandSender destination : destinations) {
-            sendTo(destination);
+            for (String line : lines) {
+                destination.sendMessage(line);
+            }
         }
     }
 
